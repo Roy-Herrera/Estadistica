@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Button, Typography, Upload, message, Row, Col, notification } from 'antd';
+import { Input, Button, Typography, Upload, message, Row, Col, notification, Flex } from 'antd';
 import {
     UploadOutlined
 } from '@ant-design/icons';
@@ -164,14 +164,14 @@ const StatisticsCalculator = ({ calculationType }) => {
     };
 
     return (
-        <Row gutter={[1, 16]}>
+        <Row gutter={[16, 16]} style={{display: "flex", justifyContent: 'center'}}>
             {/* titulo */}
-            <Col span={24}>
+            <Col sm={24}>
                 <Title level={3}>{calculationType}</Title>
             </Col>
 
             {/* Ingreso manual, carga de archivo, calcular y respuesta */}
-            <Col span={7} style={{ textAlign: 'center' }}>
+            <Col sm={24} md={9} lg={6} style={{ textAlign: 'center', display: 'flex' }}>
                 <Input
                     value={newValue} // estado para el valor inicial
                     onChange={handleNewValueChange} // INPUT inicial para agregar mas inputs con valores
@@ -180,7 +180,7 @@ const StatisticsCalculator = ({ calculationType }) => {
                 />
                 <Button onClick={addInputField}>+</Button>
             </Col>
-            <Col span={5} style={{ textAlign: 'center' }}>
+            <Col sm={24} md={9} lg={6} style={{ textAlign: 'center' }}>
                 <Upload
                     beforeUpload={handleFileUpload}
                     accept=".xlsx,.xls"
@@ -190,12 +190,12 @@ const StatisticsCalculator = ({ calculationType }) => {
                     <Button icon={<UploadOutlined />} style={{ width: '100%' }}>Subir archivo Excel</Button>
                 </Upload>
             </Col>
-            <Col span={2} style={{ textAlign: 'center' }}>
+            <Col sm={24} md={6} lg={2} style={{ textAlign: 'center' }}>
                 <Button type="primary" onClick={Calcular}>
                     Calcular
                 </Button>
             </Col>
-            <Col span={10} style={{ textAlign: 'center' }}>
+            <Col sm={24} md={24} lg={10} style={{ textAlign: 'center' }}>
                 {result !== null && (
                     <Text style={{ display: 'block', fontWeight: 'bold' }}>
                         Resultado: {JSON.stringify(result)}
@@ -205,9 +205,9 @@ const StatisticsCalculator = ({ calculationType }) => {
 
             {/* inputs con valores para iniciar a calcular */}
             <Col span={24} style={{ marginTop: 15 }}>
-                <Row gutter={16}>
+                <Row gutter={[16,16]}>
                     {values.map((value, index) => (
-                        <Col span={6} key={index} style={{ marginBottom: '10px' }}>
+                        <Col sm={24} md={8} lg={6} key={index} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
                             <Input
                                 value={value.value}
                                 onChange={(e) => handleInputChange(index, e)}

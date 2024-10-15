@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     TeamOutlined,
     HomeOutlined,
@@ -9,14 +9,14 @@ import {
     PartitionOutlined,
     DotChartOutlined
 } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, theme } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
 const { Sider } = Layout;
 
 const siderStyle = {
     overflow: 'auto',
-    height: '100vh',
+    height: '100%',
     position: 'fixed',
     insetInlineStart: 0,
     top: 0,
@@ -60,51 +60,27 @@ const items = [
     ])
 ];
 
-const AppSider = () => {
-    const location = useLocation(); // Obtiene la ubicación actual
+const AppSider = ({ onCollapseChange }) => {
+    const [collapsed, setCollapsed] = useState(false);
 
-    // Determina la clave seleccionada según la ruta actual
-    const getSelectedKey = () => {
-        switch (location.pathname) {
-            case '/':
-                return ['1'];
-            case '/manual':
-                return ['2'];
-            case '/mediana':
-                return ['8'];
-            case '/moda':
-                return ['9'];
-            case '/cuartiles':
-                return ['10'];
-            case '/varianza/poblacional':
-                return ['12'];
-            case '/varianza/simple':
-                return ['13'];
-            case '/media/aritmetica':
-                return ['4'];
-            case '/media/ponderada':
-                return ['5'];
-            case '/media/geometrica':
-                return ['6'];
-            case '/media/armonica':
-                return ['7'];
-            case '/team/sanchez':
-                return ['15'];
-            case '/team/herrera':
-                return ['16'];
-            default:
-                return []; // No hay ninguna clave seleccionada
-        }
+    const handleCollapse = (value) => {
+        setCollapsed(value);
+        onCollapseChange(value); // Llama a la función cuando se colapse o expanda el sider
     };
 
     return (
-        <Sider style={siderStyle}>
+        <Sider
+            style={siderStyle}
+            collapsible
+            collapsed={collapsed}
+            onCollapse={handleCollapse}
+        >
             <div className="demo-logo-vertical" />
             <Menu 
                 theme="dark" 
                 mode="inline" 
                 style={{ color: 'white' }} 
-                selectedKeys={getSelectedKey()} // Establece la clave seleccionada
+                defaultSelectedKeys={['1']}
                 items={items} 
             />
         </Sider>
@@ -112,3 +88,4 @@ const AppSider = () => {
 };
 
 export default AppSider;
+

@@ -8,10 +8,11 @@ const AppHeader = () => {
   return (
     <AntHeader
       style={{
-        padding: 30,
+        padding: 15,
         background: 'white',
         display: 'flex',
         alignItems: 'center',
+        height: 'auto'
       }}
     >
       <img
