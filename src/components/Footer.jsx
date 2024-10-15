@@ -13,7 +13,7 @@ const AppFooter = () => {
       }}
     >
         Created by © <br />
-        Alejandra Sanches Alias JUANCHEZ <br />
+        Madali Alejandra Villagrez Sanchez 1490-23-4979 <br />
         Roy Bertony Herrera Vicente 1490-23-22849
     </AntFooter>
   );

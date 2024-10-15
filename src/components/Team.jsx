@@ -1,14 +1,17 @@
 import React from "react";
+import { Row, Col } from 'antd';
 import Sanchez from '../assets/Sanchez.png'
 import Herrera from '../assets/herrera.jpg'
 
 const TeamMember = ({ name, photo, description }) => {
     return (
-        <div style={styles.memberContainer}>
-            <img src={photo} alt={name} style={styles.photo} />
-            <h3>{name}</h3>
-            <p style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br/>') }} />
-        </div>
+        <Row gutter={[16,16]} style={{ display: "flex", justifyContent: "center" }} >
+            <Col xs={24} md={12} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <img src={photo} alt={name} style={styles.photo} />
+                <h3>{name}</h3>
+                <p style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br/>') }} />
+            </Col>
+        </Row>
     );
 };
 
@@ -18,7 +21,7 @@ const Team = ({ Name }) => {
     switch (Name) {
         case "Madali Alejandra Villagrez Sanchez":
             memberData = {
-                name: "Madali Alejandra Villagrez Sanchez 1490-23-",
+                name: "Madali Alejandra Villagrez Sanchez 1490-23-4979",
                 photo: Sanchez,
                 description: `
                 Una joven llena de energía y curiosidad, siempre dispuesta a aprender algo nuevo. Ha mostrado un interés innato por la tecnología y la resolución de problemas, lo que la ha llevado a perseguir su sueño de convertirse en ingeniera de sistemas. No se detiene ante ningún obstáculo; cada desafío es una oportunidad para crecer y mejorar. 
