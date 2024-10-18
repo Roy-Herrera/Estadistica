@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input, Button, Typography, Upload, message, Row, Col, notification, Flex } from 'antd';
 import {
     UploadOutlined
@@ -13,6 +13,10 @@ const StatisticsCalculator = ({ calculationType }) => {
     const [result, setResult] = useState(null);
     const [enabled, setEnabled] = useState(true);
     const [threshold, setThreshold] = useState(3);
+
+    useEffect(() => {
+        setResult(null);
+    }, [calculationType])
 
     // Uso de la notificacion para ingreso manual cuando no tiene informacion
     const [api, contextHolder] = notification.useNotification({

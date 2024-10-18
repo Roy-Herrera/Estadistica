@@ -1,14 +1,12 @@
 import { Row, Col, Button } from 'antd';
 import React from 'react';
-import {
-    DownloadOutlined
-} from '@ant-design/icons';
+import { DownloadOutlined } from '@ant-design/icons';
 import PDF from "../assets/MANUAL DE USUARIO.pdf"
 
 
 const Manual = () => {
     return (
-        <Row>
+        <Row gutter={[16,16]}>
             <Col span={24} style={{ marginBottom: 20 }}>
                 <h1>Descargue el manual de uso y haga uso de nuestra herramienta.</h1>
                 <a href={PDF} download style={{ textDecoration: 'none' }}>
