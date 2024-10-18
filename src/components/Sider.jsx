@@ -9,7 +9,7 @@ import {
     PartitionOutlined,
     DotChartOutlined
 } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+import { Layout, Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
 const { Sider } = Layout;
@@ -75,7 +75,7 @@ const AppSider = ({ onCollapseChange }) => {
             collapsed={collapsed}
             onCollapse={handleCollapse}
         >
-            <div className="demo-logo-vertical" />
+
             <Menu 
                 theme="dark" 
                 mode="inline" 
