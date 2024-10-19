@@ -124,7 +124,19 @@ const StatisticsCalculator = ({ calculationType }) => {
             default:
                 res = 'Tipo de cálculo no válido';
         }
-        setResult(res);
+
+        console.log(res);
+        
+
+        // if(!isNaN(res) && res != null) {
+            setResult(res);
+        // } else {
+        //     api.info({
+        //         message: "No es posible calcular",
+        //         description: 'Digitalice valores para calcular.',
+        //         duration: 2,
+        //     })
+        // }
     };
 
     const MedGeometrica = (nums) => {
@@ -164,7 +176,7 @@ const StatisticsCalculator = ({ calculationType }) => {
         const mean = nums.reduce((acc, val) => acc + val, 0) / nums.length; //se calcula la media 
         const squaredDiffs = nums.map(num => Math.pow(num - mean, 2)); // se calcula la diferencia al cuadrado de cada número con respecto a la media
         const totalSquaredDiffs = squaredDiffs.reduce((acc, val) => acc + val, 0); //se suman las diferencias al cuadrado
-        return isPoblacional ? totalSquaredDiffs / nums.length : totalSquaredDiffs / (nums.length - 1); //isPoblacional se retorna la var poblacional, la var muestral
+        return isPoblacional ? "X̅: " + mean + " σ:" + totalSquaredDiffs / nums.length : "X̅: " + mean + " σ:" + totalSquaredDiffs / (nums.length - 1); //isPoblacional se retorna la var poblacional, la var muestral
     };
 
     return (
